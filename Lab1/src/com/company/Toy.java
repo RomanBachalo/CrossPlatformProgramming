@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public abstract class Toy {
     public String Name;
     private int Price;
@@ -13,7 +17,9 @@ public abstract class Toy {
         Price = price;
     }
 
-    public String GetName(){ return Name;}
+    public String GetName() {
+        return Name;
+    }
 
     public void SetPrice(int price) {
         Price = price;
@@ -25,9 +31,66 @@ public abstract class Toy {
 
     public abstract String GetType();
 
-    public String GetSubtype()
-    {
+    public String GetSubtype() {
         return Subtype.toString();
+    }
+
+    //Inner static class used for sorting toys
+    public static class InnerStaticSortingClass {
+        public static List<Toy> SortByPriceAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
+            return toyList;
+        }
+
+        public static List<Toy> SortByPriceDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice).reversed());
+            return toyList;
+        }
+
+        public static List<Toy> SortByTypeAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype));
+
+            return toyList;
+        }
+
+        public static List<Toy> SortByTypeDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype).reversed());
+
+            return toyList;
+        }
+    }
+
+    //Inner non static class used to sort toys
+    private class InnerSortingClass {
+        public InnerSortingClass() {
+        }
+
+        public List<Toy> SortByPriceAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
+            return toyList;
+        }
+
+        public List<Toy> SortByPriceDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice).reversed());
+            return toyList;
+        }
+
+        public List<Toy> SortByTypeAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype));
+
+            return toyList;
+        }
+
+        public List<Toy> SortByTypeDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype).reversed());
+
+            return toyList;
+        }
+    }
+
+    //Function to return an instance of inner sorting class
+    public InnerSortingClass GetSortingClassInstance() {
+        return new InnerSortingClass();
     }
 }
 
@@ -35,19 +98,19 @@ interface ToySubtypes {
 }
 
 enum CarSize implements ToySubtypes {
-    Small{
+    Small {
         @Override
         public String toString() {
             return "Small";
         }
     },
-    Medium{
+    Medium {
         @Override
         public String toString() {
             return "Medium";
         }
     },
-    Large{
+    Large {
         @Override
         public String toString() {
             return "Large";
@@ -56,19 +119,19 @@ enum CarSize implements ToySubtypes {
 }
 
 enum BallType implements ToySubtypes {
-    Volleyball{
+    Volleyball {
         @Override
         public String toString() {
             return "Volleyball";
         }
     },
-    Football{
+    Football {
         @Override
         public String toString() {
             return "Football";
         }
     },
-    Basketball{
+    Basketball {
         @Override
         public String toString() {
             return "Basketball";
@@ -77,13 +140,13 @@ enum BallType implements ToySubtypes {
 }
 
 enum CubeType implements ToySubtypes {
-    Digits{
+    Digits {
         @Override
         public String toString() {
             return "Digits";
         }
     },
-    Letters{
+    Letters {
         @Override
         public String toString() {
             return "Letters";
@@ -92,7 +155,6 @@ enum CubeType implements ToySubtypes {
 }
 
 class Car extends Toy {
-    CarSize carSize;
 
     Car(String name, int price, CarSize _carSize) {
         super(name, price);
@@ -106,7 +168,6 @@ class Car extends Toy {
 }
 
 class Ball extends Toy {
-    BallType ballType;
 
     Ball(String name, int price, BallType _ballType) {
         super(name, price);
@@ -120,11 +181,10 @@ class Ball extends Toy {
 }
 
 class Cube extends Toy {
-    CubeType cubeType;
 
-    Cube(String name, int price, CubeType _cuebType) {
+    Cube(String name, int price, CubeType _cubeType) {
         super(name, price);
-        Subtype = _cuebType;
+        Subtype = _cubeType;
     }
 
     @Override

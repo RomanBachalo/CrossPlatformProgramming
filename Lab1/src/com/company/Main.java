@@ -27,8 +27,10 @@ public class Main {
         children.add(new Child("Ivan", 43));
         GameRoom gameRoom = new GameRoom(children, toys);
 
-        SortManager sortManager = new SortManager(gameRoom);
-        toys = sortManager.SortByTypeDesc();
+        //SortManager sortManager = new SortManager(gameRoom);
+        //toys = sortManager.SortByTypeDesc();
+
+        toys = Toy.InnerStaticSortingClass.SortByPriceAsc(toys);
 
         Toy[] t = new Toy[toys.size()];
         toys.toArray(t);
