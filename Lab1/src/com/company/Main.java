@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Toy c1 = new Cube("Cube1", 100, CubeType.Digits);
         Toy c6 = new Ball("Ball2", 110, BallType.Football);
-        Toy c2 = new Cube("Cube3", 120, CubeType.Letters);it
+        Toy c2 = new Cube("Cube3", 120, CubeType.Letters);
         Toy c4 = new Cube("Cube4", 110, CubeType.Letters);
         Toy c7 = new Ball("Ball3", 110, BallType.Volleyball);
         Toy c3 = new Cube("Cube2", 130, CubeType.Digits);
