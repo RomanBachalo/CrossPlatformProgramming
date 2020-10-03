@@ -3,9 +3,8 @@ package com.company;
 import java.util.List;
 
 public class GameRoom {
-    List<Child> childList;
-    List<Toy> toyList;
-    GameRoomType gameRoomType;
+    private List<Child> childList;
+    private List<Toy> toyList;
 
     public GameRoom() {
     }
@@ -39,10 +38,4 @@ public class GameRoom {
         toyList.remove(index);
     }
 
-}
-
-enum GameRoomType {
-    Junior,
-    Middle,
-    Senior
 }

@@ -1,5 +1,11 @@
 package com.company;
 
+enum ChildAgeGroup {
+    Junior,
+    Middle,
+    Senior
+}
+
 public class Child {
     public String Name;
     public int Age;
