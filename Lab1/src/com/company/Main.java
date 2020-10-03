@@ -98,46 +98,46 @@ public class Main {
                     System.out.println();
                     break;
                 case 6:
+                    System.out.println("Choose sorting method:");
+                    System.out.println("1. Sort ascending by price");
+                    System.out.println("2. Sort descending by price");
+                    System.out.println("3. Sort ascending by type");
+                    System.out.println("4. Sort descending by type");
 
+                    int sortMethod = (int) myInput.nextInt();
+
+                    switch (sortMethod)
+                    {
+                        case 1:
+                            SortManager sortManager = new SortManager(gameRoom);
+                            gameRoom.SetToyList(sortManager.SortByPriceAsc());
+                            System.out.println("Done");
+                            System.out.println();
+                            break;
+                        case 2:
+                            gameRoom.SetToyList(Toy.InnerStaticSortingClass.SortByPriceDesc(gameRoom.GetToyList()));
+                            System.out.println("Done");
+                            System.out.println();
+                            break;
+                        case 3:
+                            Toy[] toy1 = new Toy[gameRoom.GetToyList().size()];
+                            gameRoom.GetToyList().toArray(toy1);
+                            gameRoom.SetToyList(((Toy) toy1[0]).SortByTypeAsc(gameRoom.GetToyList()));
+                            System.out.println("Done");
+                            System.out.println();
+                            break;
+                        case 4:
+                            Toy[] toy2 = new Toy[gameRoom.GetToyList().size()];
+                            gameRoom.GetToyList().toArray(toy2);
+                            gameRoom.SetToyList(((Toy) toy2[0]).SortByTypeDesc(gameRoom.GetToyList()));
+                            System.out.println("Done");
+                            System.out.println();
+                            break;
+                    }
                 default:
                     exit = true;
                     break;
             }
         }
-        
-/*
-        Toy c1 = new Cube("Cube1", 100, CubeType.Digits);
-        Toy c6 = new Ball("Ball2", 110, BallType.Football);
-        Toy c2 = new Cube("Cube3", 120, CubeType.Letters);
-        Toy c4 = new Cube("Cube4", 110, CubeType.Letters);
-        Toy c7 = new Ball("Ball3", 110, BallType.Volleyball);
-        Toy c3 = new Cube("Cube2", 130, CubeType.Digits);
-        Toy c5 = new Ball("Ball1", 110, BallType.Basketball);
-        List<Toy> toys = new LinkedList<Toy>();
-        toys.add(c1);
-        toys.add(c2);
-        toys.add(c3);
-        toys.add(c4);
-        toys.add(c5);
-        toys.add(c6);
-        toys.add(c7);
-        toys.add(c7);
-        List<Child> children = new LinkedList<Child>();
-        children.add(new Child("Ivan", 43));
-        GameRoom gameRoom = new GameRoom(children, toys);
-
-        //SortManager sortManager = new SortManager(gameRoom);
-        //toys = sortManager.SortByTypeDesc();
-
-        toys = Toy.InnerStaticSortingClass.SortByPriceAsc(toys);
-
-        Toy[] t = new Toy[toys.size()];
-        toys.toArray(t);
-
-        for (int i = 0; i < t.length; i = i + 1) {
-            System.out.println(t[i].Name + " " + t[i].GetSubtype() + " " + t[i].GetPrice());
-        }
-
- */
     }
 }

@@ -161,7 +161,8 @@ public abstract class Toy {
     }
 
     //Inner non static class used to sort toys
-    private class InnerSortingClass {
+    private static class InnerSortingClass {
+        InnerSortingClass(){}
         public List<Toy> SortByPriceAsc(List<Toy> toyList) {
             Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
             return toyList;
@@ -219,6 +220,22 @@ public abstract class Toy {
 
     public InnerSortingClass GetAnonymousSortingClass() {
         return anonymousInnerSortingClass;
+    }
+
+    public List<Toy> SortByPriceAsc(List<Toy> toyList) {
+        return anonymousInnerSortingClass.SortByPriceAsc(toyList);
+    }
+
+    public List<Toy> SortByPriceDesc(List<Toy> toyList) {
+        return anonymousInnerSortingClass.SortByPriceDesc(toyList);
+    }
+
+    public List<Toy> SortByTypeAsc(List<Toy> toyList) {
+        return GetSortingClassInstance().SortByTypeAsc(toyList);
+    }
+
+    public List<Toy> SortByTypeDesc(List<Toy> toyList) {
+        return GetSortingClassInstance().SortByTypeDesc(toyList);
     }
 
 }

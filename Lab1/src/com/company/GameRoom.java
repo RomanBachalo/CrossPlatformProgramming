@@ -22,6 +22,10 @@ public class GameRoom {
         return toyList;
     }
 
+    public void SetToyList(List<Toy> _toyList) {
+        toyList = _toyList;
+    }
+
     public void AddChild(Child child) {
         childList.add(child);
     }
