@@ -14,31 +14,31 @@ public class GameRoom {
         toyList = _toyList;
     }
 
-    public List<Child> GetChildList() {
+    public List<Child> getChildList() {
         return childList;
     }
 
-    public List<Toy> GetToyList() {
+    public List<Toy> getToyList() {
         return toyList;
     }
 
-    public void SetToyList(List<Toy> _toyList) {
+    public void setToyList(List<Toy> _toyList) {
         toyList = _toyList;
     }
 
-    public void AddChild(Child child) {
+    public void addChild(Child child) {
         childList.add(child);
     }
 
-    public void AddToy(Toy toy) {
+    public void addToy(Toy toy) {
         toyList.add(toy);
     }
 
-    public void RemoveChild(int index) {
+    public void removeChild(int index) {
         childList.remove(index);
     }
 
-    public void RemoveToy(int index) {
+    public void removeToy(int index) {
         toyList.remove(index);
     }
 

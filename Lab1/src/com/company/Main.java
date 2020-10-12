@@ -9,16 +9,34 @@ public class Main {
     public static void main(String[] args) {
         boolean exit = false;
 
-        GameRoom gameRoom = new GameRoom(new LinkedList<Child>(), new LinkedList<Toy>());
+        List<Child> cList = new LinkedList<Child>();
+        List<Toy> tList = new LinkedList<Toy>();
+
+        cList.add(new Child("Evan", 5));
+        cList.add(new Child("Ron", 4));
+        cList.add(new Child("Jade", 4));
+        cList.add(new Child("Nat", 3));
+
+        tList.add(new Ball("Ball_1", 20, BallType.Football));
+        tList.add(new Car("Car_1", 20, CarSize.Small));
+        tList.add(new Cube("Cube_1", 40, CubeType.Digits));
+        tList.add(new Ball("Ball_3", 30, BallType.Basketball));
+        tList.add(new Car("Car_3", 40, CarSize.Medium));
+        tList.add(new Cube("Cube_3", 30, CubeType.Images));
+        tList.add(new Ball("Ball_2", 35, BallType.Volleyball));
+        tList.add(new Car("Car_2", 15, CarSize.Large));
+        tList.add(new Cube("Cube_2", 25, CubeType.Letters));
+
+        GameRoom gameRoom = new GameRoom(cList, tList);
 
         while (!exit) {
-            System.out.println("1. Print game room list");
-            System.out.println("2. Add child");
-            System.out.println("3. Remove child");
-            System.out.println("4. Add toy");
-            System.out.println("5. Remove toy");
-            System.out.println("6. Sort toys");
-            System.out.println("0. Exit");
+            System.out.print("1.Print game room list    ");
+            System.out.print("2.Add child   ");
+            System.out.print("3.Remove child    ");
+            System.out.print("4.Add toy   ");
+            System.out.print("5.Remove toy  ");
+            System.out.print("6.Sort toys   ");
+            System.out.println("0.Exit    ");
 
             Scanner myInput = new Scanner(System.in);
             int option = (int) myInput.nextInt();
@@ -26,20 +44,24 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Children:");
-                    Child[] c = new Child[gameRoom.GetChildList().size()];
-                    gameRoom.GetChildList().toArray(c);
+                    Child[] c = new Child[gameRoom.getChildList().size()];
+                    gameRoom.getChildList().toArray(c);
 
                     for (int i = 0; i < c.length; i += 1) {
                         System.out.println((i + 1) + ". " + c[i].Name + ", " + c[i].Age + " year(s)");
                     }
 
                     System.out.println("Toys:");
-                    Toy[] t = new Toy[gameRoom.GetToyList().size()];
-                    gameRoom.GetToyList().toArray(t);
+                    int sum = 0;
+                    Toy[] t = new Toy[gameRoom.getToyList().size()];
+                    gameRoom.getToyList().toArray(t);
 
                     for (int i = 0; i < t.length; i += 1) {
-                        System.out.println((i + 1) + ". " + t[i].Name + " - " + t[i].GetType() + "(" + t[i].GetSubtype() + "), " + t[i].GetPrice() + "$");
+                        sum += t[i].getPrice();
+                        System.out.println((i + 1) + ". " + t[i].Name + " - " + t[i].getType() + "(" + t[i].getSubtype() + "), " + t[i].getPrice() + "$");
                     }
+                    System.out.println();
+                    System.out.println("Total price: " + sum + "$");
                     System.out.println();
                     break;
                 case 2:
@@ -49,14 +71,14 @@ public class Main {
                     System.out.println("Enter child`s age");
                     int age = (int) myInput.nextInt();
 
-                    gameRoom.AddChild(new Child(name, age));
+                    gameRoom.addChild(new Child(name, age));
                     System.out.println();
                     break;
                 case 3:
                     System.out.println("Enter child number");
                     int childIndex = (int) myInput.nextInt();
 
-                    gameRoom.RemoveChild(childIndex);
+                    gameRoom.removeChild(childIndex);
                     System.out.println();
                     break;
                 case 4:
@@ -78,13 +100,13 @@ public class Main {
                     switch (type)
                     {
                         case 1:
-                            gameRoom.AddToy(new Car(toyName, price, CarSize.sub(subtype)));
+                            gameRoom.addToy(new Car(toyName, price, CarSize.sub(subtype)));
                             break;
                         case 2:
-                            gameRoom.AddToy(new Ball(toyName, price, BallType.sub(subtype)));
+                            gameRoom.addToy(new Ball(toyName, price, BallType.sub(subtype)));
                             break;
                         case 3:
-                            gameRoom.AddToy(new Cube(toyName, price, CubeType.sub(subtype)));
+                            gameRoom.addToy(new Cube(toyName, price, CubeType.sub(subtype)));
                             break;
                     }
                     System.out.println();
@@ -94,15 +116,15 @@ public class Main {
                     System.out.println("Enter toy number");
                     int toyIndex = (int) myInput.nextInt();
 
-                    gameRoom.RemoveToy(toyIndex);
+                    gameRoom.removeToy(toyIndex);
                     System.out.println();
                     break;
                 case 6:
                     System.out.println("Choose sorting method:");
-                    System.out.println("1. Sort ascending by price");
-                    System.out.println("2. Sort descending by price");
-                    System.out.println("3. Sort ascending by type");
-                    System.out.println("4. Sort descending by type");
+                    System.out.println("1. Sort ascending by price (SortManager)");
+                    System.out.println("2. Sort descending by price (Inner Static Class)");
+                    System.out.println("3. Sort ascending by type (Inner Class)");
+                    System.out.println("4. Sort descending by type (Anonymous Inner Class)");
 
                     int sortMethod = (int) myInput.nextInt();
 
@@ -110,30 +132,31 @@ public class Main {
                     {
                         case 1:
                             SortManager sortManager = new SortManager(gameRoom);
-                            gameRoom.SetToyList(sortManager.SortByPriceAsc());
+                            gameRoom.setToyList(sortManager.sortByPriceAsc());
                             System.out.println("Done");
                             System.out.println();
-                            break;
+                            continue;
                         case 2:
-                            gameRoom.SetToyList(Toy.InnerStaticSortingClass.SortByPriceDesc(gameRoom.GetToyList()));
+                            gameRoom.setToyList(Toy.InnerStaticSortingClass.sortByPriceDesc(gameRoom.getToyList()));
                             System.out.println("Done");
                             System.out.println();
-                            break;
+                            continue;
                         case 3:
-                            Toy[] toy1 = new Toy[gameRoom.GetToyList().size()];
-                            gameRoom.GetToyList().toArray(toy1);
-                            gameRoom.SetToyList(((Toy) toy1[0]).SortByTypeAsc(gameRoom.GetToyList()));
+                            Toy[] toy1 = new Toy[gameRoom.getToyList().size()];
+                            gameRoom.getToyList().toArray(toy1);
+                            gameRoom.setToyList(((Toy) toy1[0]).sortByTypeAsc(gameRoom.getToyList()));
                             System.out.println("Done");
                             System.out.println();
-                            break;
+                            continue;
                         case 4:
-                            Toy[] toy2 = new Toy[gameRoom.GetToyList().size()];
-                            gameRoom.GetToyList().toArray(toy2);
-                            gameRoom.SetToyList(((Toy) toy2[0]).SortByTypeDesc(gameRoom.GetToyList()));
+                            Toy[] toy2 = new Toy[gameRoom.getToyList().size()];
+                            gameRoom.getToyList().toArray(toy2);
+                            gameRoom.setToyList(((Toy) toy2[0]).sortByTypeDesc(gameRoom.getToyList()));
                             System.out.println("Done");
                             System.out.println();
-                            break;
+                            continue;
                     }
+                    break;
                 default:
                     exit = true;
                     break;

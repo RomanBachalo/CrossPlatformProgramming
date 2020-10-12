@@ -112,24 +112,24 @@ public abstract class Toy {
 
     //Anonymous inner class for sorting toys
     public InnerSortingClass anonymousInnerSortingClass = new InnerSortingClass() {
-        public List<Toy> SortByPriceAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
+        public List<Toy> sortByPriceAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice));
             return toyList;
         }
 
-        public List<Toy> SortByPriceDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice).reversed());
+        public List<Toy> sortByPriceDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice).reversed());
             return toyList;
         }
 
-        public List<Toy> SortByTypeAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype));
+        public List<Toy> sortByTypeAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype));
 
             return toyList;
         }
 
-        public List<Toy> SortByTypeDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype).reversed());
+        public List<Toy> sortByTypeDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype).reversed());
 
             return toyList;
         }
@@ -137,24 +137,24 @@ public abstract class Toy {
 
     //Inner static class used for sorting toys
     public static class InnerStaticSortingClass {
-        public static List<Toy> SortByPriceAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
+        public static List<Toy> sortByPriceAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice));
             return toyList;
         }
 
-        public static List<Toy> SortByPriceDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice).reversed());
+        public static List<Toy> sortByPriceDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice).reversed());
             return toyList;
         }
 
-        public static List<Toy> SortByTypeAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype));
+        public static List<Toy> sortByTypeAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype));
 
             return toyList;
         }
 
-        public static List<Toy> SortByTypeDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype).reversed());
+        public static List<Toy> sortByTypeDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype).reversed());
 
             return toyList;
         }
@@ -163,24 +163,24 @@ public abstract class Toy {
     //Inner non static class used to sort toys
     private static class InnerSortingClass {
         InnerSortingClass(){}
-        public List<Toy> SortByPriceAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice));
+        public List<Toy> sortByPriceAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice));
             return toyList;
         }
 
-        public List<Toy> SortByPriceDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetPrice).reversed());
+        public List<Toy> sortByPriceDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getPrice).reversed());
             return toyList;
         }
 
-        public List<Toy> SortByTypeAsc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype));
+        public List<Toy> sortByTypeAsc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype));
 
             return toyList;
         }
 
-        public List<Toy> SortByTypeDesc(List<Toy> toyList) {
-            Collections.sort(toyList, Comparator.comparing(Toy::GetType).thenComparing(Toy::GetSubtype).reversed());
+        public List<Toy> sortByTypeDesc(List<Toy> toyList) {
+            Collections.sort(toyList, Comparator.comparing(Toy::getType).thenComparing(Toy::getSubtype).reversed());
 
             return toyList;
         }
@@ -196,46 +196,46 @@ public abstract class Toy {
     }
 
     //Function to return an instance of inner sorting class
-    public InnerSortingClass GetSortingClassInstance() {
+    public InnerSortingClass getSortingClassInstance() {
         return new InnerSortingClass();
     }
 
-    public String GetName() {
+    public String getName() {
         return Name;
     }
 
-    public int GetPrice() {
+    public int getPrice() {
         return Price;
     }
 
-    public void SetPrice(int price) {
+    public void setPrice(int price) {
         Price = price;
     }
 
-    public abstract String GetType();
+    public abstract String getType();
 
-    public String GetSubtype() {
+    public String getSubtype() {
         return Subtype.toString();
     }
 
-    public InnerSortingClass GetAnonymousSortingClass() {
+    public InnerSortingClass getAnonymousSortingClass() {
         return anonymousInnerSortingClass;
     }
 
-    public List<Toy> SortByPriceAsc(List<Toy> toyList) {
-        return anonymousInnerSortingClass.SortByPriceAsc(toyList);
+    public List<Toy> sortByPriceAsc(List<Toy> toyList) {
+        return getAnonymousSortingClass().sortByPriceAsc(toyList);
     }
 
-    public List<Toy> SortByPriceDesc(List<Toy> toyList) {
-        return anonymousInnerSortingClass.SortByPriceDesc(toyList);
+    public List<Toy> sortByPriceDesc(List<Toy> toyList) {
+        return getSortingClassInstance().sortByPriceDesc(toyList);
     }
 
-    public List<Toy> SortByTypeAsc(List<Toy> toyList) {
-        return GetSortingClassInstance().SortByTypeAsc(toyList);
+    public List<Toy> sortByTypeAsc(List<Toy> toyList) {
+        return getSortingClassInstance().sortByTypeAsc(toyList);
     }
 
-    public List<Toy> SortByTypeDesc(List<Toy> toyList) {
-        return GetSortingClassInstance().SortByTypeDesc(toyList);
+    public List<Toy> sortByTypeDesc(List<Toy> toyList) {
+        return getAnonymousSortingClass().sortByTypeDesc(toyList);
     }
 
 }
@@ -248,7 +248,7 @@ class Car extends Toy {
     }
 
     @Override
-    public String GetType() {
+    public String getType() {
         return "Car";
     }
 }
@@ -261,7 +261,7 @@ class Ball extends Toy {
     }
 
     @Override
-    public String GetType() {
+    public String getType() {
         return "Ball";
     }
 }
@@ -274,7 +274,7 @@ class Cube extends Toy {
     }
 
     @Override
-    public String GetType() {
+    public String getType() {
         return "Cube";
     }
 
