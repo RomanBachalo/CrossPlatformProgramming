@@ -1,0 +1,8 @@
+Short string. Short string with question mark? Very long string that is not fitting in one line very long string that is not fitting in one line very long string that is not fitting in one line very long string that is not fitting in one line very long string that is not fitting in one line.
+Речення кирилецею. Речення з літерою "Ї".
+Речення зі шляхом C:\Users\roman до користувачів.
+Запитальне речення?
+C:\Users\roman\AppData
+\Lab3\src
+Very long string that is barely fitting in one line very long string that is barely fitting in one line very long string that is barely fitting in one line.
+Very long string that is not fitting in one line very long string that is not fitting in one line very long string that is not fitting in one line very long string that not fitting.
