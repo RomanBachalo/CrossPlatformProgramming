@@ -67,17 +67,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,6 +79,9 @@
       <workItem from="1603479124825" duration="6942000" />
       <workItem from="1603486356262" duration="1891000" />
       <workItem from="1603533453386" duration="15689000" />
+      <workItem from="1603706840849" duration="1542000" />
+      <workItem from="1603716659060" duration="1038000" />
+      <workItem from="1603811785110" duration="60000" />
     </task>
     <servers />
   </component>
@@ -106,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="63" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603486993215">
@@ -116,26 +109,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="531" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1603488051636" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603545768187">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603811839371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603545768187" />
-    <state width="1493" height="252" key="GridCell.Tab.0.bottom" timestamp="1603549779844">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603811839371" />
+    <state width="1493" height="536" key="GridCell.Tab.0.bottom" timestamp="1603718607881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603549779844" />
-    <state width="1493" height="252" key="GridCell.Tab.0.center" timestamp="1603549779844">
+    <state width="1493" height="536" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603718607881" />
+    <state width="1493" height="536" key="GridCell.Tab.0.center" timestamp="1603718607881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603549779844" />
-    <state width="1493" height="252" key="GridCell.Tab.0.left" timestamp="1603549779844">
+    <state width="1493" height="536" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603718607881" />
+    <state width="1493" height="536" key="GridCell.Tab.0.left" timestamp="1603718607881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603549779844" />
-    <state width="1493" height="252" key="GridCell.Tab.0.right" timestamp="1603549779844">
+    <state width="1493" height="536" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603718607881" />
+    <state width="1493" height="536" key="GridCell.Tab.0.right" timestamp="1603718607881">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603549779844" />
+    <state width="1493" height="536" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603718607881" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1603486820012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -144,6 +137,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="173" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1603544587946" />
+    <state x="209" y="33" key="new project wizard" timestamp="1603811843280">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603811843280" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603546375242">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

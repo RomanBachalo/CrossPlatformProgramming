@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         Map<String,List<FootballClub>> footballClubsMap = new HashMap<String, List<FootballClub>>();
 
-
         boolean exit = false;
 
         while (!exit) {
