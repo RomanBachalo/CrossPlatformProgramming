@@ -1,11 +1,16 @@
 package com.company;
 
-public class GausMethodRunnable implements Runnable {
+public class GaussMethodThread extends Thread{
+    public Thread thread;
     public double[][] matrix;
 
-    public GausMethodRunnable(double[][] input)
+    public GaussMethodThread(double[][] input)
     {
         matrix = input;
+    }
+
+    public Thread GetThread(){
+        return thread;
     }
 
     public void PrintMatrix()
@@ -69,7 +74,11 @@ public class GausMethodRunnable implements Runnable {
     @Override
     public void run() {
         matrix = Calculate(matrix);
+    }
 
-        //PrintMatrix();
+    @Override
+    public void start() {
+        thread = new Thread(this);
+        thread.start();
     }
 }
